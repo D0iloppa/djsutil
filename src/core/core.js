@@ -195,9 +195,9 @@ class DJSUtil {
                 <b>🟢 Tab Test 영역</b><span style='margin-left:5px'>div id : djs-test-tab</span>
                 <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
     (* 예시) :
-                
+
     DJSUtil.generateTabManager("#djs-test-tab",{
-        height: "400px",
+        height: "300px",
         width: "800px",
         initTabs : [
             { tab_title: "Tab 1", tab_content: "Content 1", isRemovable: true },
