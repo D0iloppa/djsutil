@@ -1,0 +1,85 @@
+/* 기본 탭 스타일 */
+.tabManager {
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 탭 타이틀 스타일 */
+.tab-area {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 0; 
+}
+
+/* 탭 타이틀 항목 스타일 */
+.tab-area .tab-title {
+    margin-top: 3px;
+    position: relative;
+    margin-right: 3px;
+    background: #e9e9e9;
+    display: block;
+    padding: 3px 29px 3px 8px;
+    font-size: 12px;
+    color: #222222;
+    text-transform: uppercase;
+    border-top-left-radius: 6px;
+    font-weight: bold;
+    border-top-right-radius: 6px;
+    cursor: pointer;
+}
+
+/* 탭 타이틀 hover 스타일 */
+.tab-area .tab-title:hover {
+    background: #d9d9d9;
+}
+
+/* 활성화된 탭 타이틀 스타일 */
+.tab-area .tab-title.tab-activated {
+    background: #232323;
+    color: #fff;
+}
+
+/* 활성화된 탭 타이틀 hover 스타일 */
+.tab-area .tab-title.tab-activated:hover {
+    background: #111111;
+}
+
+
+/* 탭 콘텐츠 스타일 */
+.tab-content {
+    display: none; /* 기본적으로 숨김 */
+    padding: 10px 0px;
+}
+
+/* 활성화된 탭 콘텐츠는 표시 */
+.tab-content.tab-activated {
+    display: block;
+}
+
+/* tab-title 내의 button 스타일 */
+.tab-title button {
+    width: 14px;
+    height: 14px;
+    background: none;
+    border: none;
+    font-size: 8px;
+    color: #c8c8c8;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* hover 시 효과 (선택 사항) */
+.tab-title button:hover {
+    opacity: 0.7; /* 버튼에 마우스를 올리면 투명도를 조금 줄여서 시각적 효과 */
+}
+

@@ -1,11 +1,9 @@
-import Core from "./core/index";
+import DJSUtil from "./core/core";
 
-const DjsUtil = new Core();
-
-// 브라우저 환경에서 전역 객체로 등록
+// ✅ 전역에서 바로 사용할 수 있도록 설정
 if (typeof window !== "undefined") {
-    window.DjsUtil = DjsUtil;
+    window.DJSUtil = DJSUtil;
 }
 
-// 모듈 내보내기
-export default DjsUtil;
+// ✅ 모듈에서도 싱글턴 인스턴스 내보내기
+export default DJSUtil;
