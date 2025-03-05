@@ -227,6 +227,8 @@ class DJSUtil {
             testTableRow.innerHTML = `
                 <b>🔵 Tabulator Test 영역</b><span style='margin-left:5px'>div id : djs-test-table</span>
                   <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
+TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합니다. 
+생성자만 호출할 뿐, 모든 table 인스턴스의 프로토타입 함수는 Tbulator와 동일합니다.                  
 (* 예시) :
 
     DJSUtil.generateTable("#djs-test-table", {
@@ -297,6 +299,8 @@ class DJSUtil {
             });
     
             document.getElementById("table-test-btn").addEventListener("click", function() {
+                document.querySelector("#djs-test-table").style.width = "800px"; // 원하는 width로 설정
+                
                 window.DJSUtil.generateTable("#djs-test-table", {
                     data: [
                         { id: 1, name: "DJSUtil" },
