@@ -10,8 +10,18 @@ class DJSUtil {
     constructor() {
         if (!DJSUtil.instance) {
 
-            console.log(`🐋 [%cDJSUtil%c] is Loaded at ${new Date().toLocaleTimeString()}`, 
-                        "color: #4CAF50; font-weight: bold;", "");
+
+            // https://github.com/D0iloppa/djsutil
+            console.log(`🐋 [%cDJSUtil%c] is Loaded at ${new Date().toLocaleTimeString()} 
+
+ - %c@author%c: doil
+ - GitHub: https://github.com/D0iloppa/djsutil`, 
+               "color: #4CAF50; font-weight: bold;", "", 
+               "color: #f1b50e; font-weight: bold;", "");
+           
+           console.log(`📚 [%cDJSUtil%c] Type %cDJSUtil.help()%c to see available methods.`, 
+                "color: #4CAF50; font-weight: bold;", "", "color: #2196F3; font-weight: bold;", "");
+
 
 
             // ✅ 싱글턴 인스턴스 생성
@@ -187,10 +197,34 @@ class DJSUtil {
                     ▶ SAMPLE 실행
                 </button>
             `;
+
+             // ✅ 테스트용 row div 생성 (탭 테스트 영역)
+             const buttonsRow = document.createElement("div");
+             buttonsRow.id = "djs-test-buttons";
+             buttonsRow.style.cssText = `
+                 background: rgba(255, 255, 255, 0.1);
+                 padding: 10px;
+                 border-radius: 5px;
+                 text-align: center;
+                 min-height: 100px;
+                 display: flex;
+                 flex-direction: column;
+                 align-items: center;
+                 justify-content: center;
+             `;
+             buttonsRow.innerHTML = `
+                 <b>🟣 단순 함수 호출 영역</b>
+                 <div style="margin-top:10px; display:flex; gap:10px;">
+                    <button id="btns-verebose-on" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔊 verboseMode ON </button>
+                    <button id="btns-verebose-off" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔇 verboseMode OFF </button>
+                 </div>
+                 
+             `;
     
             // ✅ 컨테이너에 추가
             testbed.appendChild(testTabRow);
             testbed.appendChild(testTableRow);
+            testbed.appendChild(buttonsRow);
     
             document.body.prepend(testbed); // ✅ 화면 최상단에 삽입
     
@@ -220,6 +254,17 @@ class DJSUtil {
                     ]
                 });
             });
+
+
+            document.getElementById("btns-verebose-on").addEventListener("click", function() {
+                window.DJSUtil.setVerboseMode(true);
+            });
+
+            document.getElementById("btns-verebose-off").addEventListener("click", function() {
+                window.DJSUtil.setVerboseMode(false);
+            });
+
+
         } else {
             if (this.settings.verboseMode) {
                 console.log("%c⚠️ [DJSUtil] Testbed already exists.", "color: #FFC107; font-weight: bold;");

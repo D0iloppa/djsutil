@@ -33,6 +33,7 @@
     font-weight: bold;
     border-top-right-radius: 6px;
     cursor: pointer;
+    user-select: none; /* 텍스트 선택 방지 */
 }
 
 /* 탭 타이틀 hover 스타일 */
