@@ -22,6 +22,9 @@ class DJSUtil {
            console.log(`📚 [%cDJSUtil%c] Type %cDJSUtil.help()%c to see available methods.`, 
                 "color: #4CAF50; font-weight: bold;", "", "color: #2196F3; font-weight: bold;", "");
 
+            console.log(`🧪 [%cDJSUtil%c] Type %cDJSUtil.test()%c to generate _TESTBED_ area.`, 
+                    "color: #4CAF50; font-weight: bold;", "", "color: #2196F3; font-weight: bold;", "");
+
 
 
             // ✅ 싱글턴 인스턴스 생성
@@ -73,11 +76,13 @@ class DJSUtil {
             { Method: "getTable", Parameters: "@identifier {string}", Description: "등록된 테이블을 가져옵니다." },
             { Method: "getTabManager", Parameters: "@identifier {string}", Description: "등록된 TabManager 객체를 가져옵니다." },
             { Method: "dJSUtiIDFromSelector", Parameters: "@selector {string}", Description: "Selector ID를 변환합니다." }
+            { Method: "setVerboseMode", Parameters: "@mode {boolean}", Description: "모듈에서 출력하는 log레벨 콘솔로그의 출력여부를 설정합니다." }
+            
         ]);
         */
 
         // ✅ 함수 목록 출력
-        console.log("%c• generateTestbed() : %c테스트용 div를 생성하여 body 최상단에 추가합니다.",
+        console.log("%c• test() : %c테스트용 div를 생성하여 body 최상단에 추가합니다.",
             "font-weight: bold;", "color: inherit;"
         );
 
@@ -109,6 +114,11 @@ class DJSUtil {
             "font-weight: bold;", "color: #2196F3;", "color: inherit;", "color: inherit;"
         );
 
+        console.log("%c• setVerboseMode(%c@mode {boolean}%c) : %c모듈에서 출력하는 log레벨 콘솔로그의 출력여부를 설정합니다.",
+            "font-weight: bold;", "color: #2196F3;", "color: inherit;", "color: inherit;"
+        );
+
+
 
         console.groupEnd();
     }
@@ -134,7 +144,6 @@ class DJSUtil {
                 color: white;
                 padding: 10px;
                 font-size: 14px;
-                z-index: 9999;
                 text-align: center;
                 border-bottom: 2px solid #4CAF50;
                 display: flex;
@@ -217,6 +226,7 @@ class DJSUtil {
                  <div style="margin-top:10px; display:flex; gap:10px;">
                     <button id="btns-verebose-on" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔊 verboseMode ON </button>
                     <button id="btns-verebose-off" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔇 verboseMode OFF </button>
+                    <button id="btns-swal-fire" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;">  🔥 Swal fire (HELLO WORLD) </button>
                  </div>
                  
              `;
@@ -257,11 +267,17 @@ class DJSUtil {
 
 
             document.getElementById("btns-verebose-on").addEventListener("click", function() {
+                window.DJSUtil.swal.fire('🔊 verboseMode HAS BEEN TURNED ON');
                 window.DJSUtil.setVerboseMode(true);
             });
 
             document.getElementById("btns-verebose-off").addEventListener("click", function() {
+                window.DJSUtil.swal.fire('🔇 verboseMode HAS BEEN TURNED OFF');
                 window.DJSUtil.setVerboseMode(false);
+            });
+
+            document.getElementById("btns-swal-fire").addEventListener("click", function() {
+                window.DJSUtil.swal.fire('😂 HELLO WORLD 😂')
             });
 
 
