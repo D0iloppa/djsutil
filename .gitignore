@@ -1,0 +1,5 @@
+# Node.js 관련 불필요한 파일들 무시
+node_modules/
+dist/
+.env
+.DS_Store
