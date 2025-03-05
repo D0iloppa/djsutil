@@ -1,6 +1,7 @@
 # Node.js 관련 불필요한 파일들 무시
 node_modules/
 dist/
+server/
 .env
 .DS_Store
 package-lock.json
