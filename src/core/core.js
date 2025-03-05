@@ -185,7 +185,6 @@ class DJSUtil {
                 padding: 10px;
                 border-radius: 5px;
                 text-align: center;
-                min-height: 300px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -218,7 +217,6 @@ class DJSUtil {
                 padding: 10px;
                 border-radius: 5px;
                 text-align: center;
-                min-height: 300px; 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -256,7 +254,6 @@ TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합�
                  padding: 10px;
                  border-radius: 5px;
                  text-align: center;
-                 min-height: 100px;
                  display: flex;
                  flex-direction: column;
                  align-items: center;
@@ -300,7 +297,7 @@ TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합�
     
             document.getElementById("table-test-btn").addEventListener("click", function() {
                 document.querySelector("#djs-test-table").style.width = "800px"; // 원하는 width로 설정
-                
+
                 window.DJSUtil.generateTable("#djs-test-table", {
                     data: [
                         { id: 1, name: "DJSUtil" },
