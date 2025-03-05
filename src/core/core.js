@@ -176,12 +176,47 @@ class DJSUtil {
                 flex-direction: column;
                 gap: 10px;
             `;
+
+
+                // ✅ 테스트용 row div 생성 (탭 테스트 영역)
+                const buttonsRow = document.createElement("div");
+                buttonsRow.id = "djs-test-buttons";
+                buttonsRow.style.cssText = `
+                             background: rgba(255, 255, 255, 0.1);
+                             padding: 10px;
+                             border-radius: 5px;
+                             text-align: center;
+                             display: flex;
+                             flex-direction: column;
+                             align-items: center;
+                             justify-content: center;
+                         `;
+                buttonsRow.innerHTML = `
+                    <b>🟣 단순 함수 호출 영역</b>
+                    <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
+    기본적인 모듈의 console.log가 구현되어 있습니다. verboseMode를 설정하여 출력여부를 설정할 수 있습니다.
+                
+    (* 예시) :
+            
+    • DJSUtil.setVerboseMode(true);
+    • DJSUtil.setVerboseMode(false);
+    • DJSUtil.swal.fire('🔊 verboseMode HAS BEEN TURNED ON');
+                </pre>
+                <div style="margin-top:10px; display:flex; gap:10px;">
+                <button id="btns-verebose-on" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔊 verboseMode ON </button>
+                    <button id="btns-verebose-off" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔇 verboseMode OFF </button>
+                    <button id="btns-swal-fire" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;">  🔥 Swal fire (HELLO WORLD) </button>
+                    </div>                             
+                `;
+
+
     
             // ✅ 테스트용 row div 생성 (탭 테스트 영역)
             const testTabRow = document.createElement("div");
             testTabRow.id = "djs-test-tab";
             testTabRow.style.cssText = `
                 background: rgba(255, 255, 255, 0.1);
+                width: 48%;
                 padding: 10px;
                 border-radius: 5px;
                 text-align: center;
@@ -208,6 +243,12 @@ class DJSUtil {
                     ▶ SAMPLE 실행
                 </button>
             `;
+
+            const flexRow = document.createElement("div");
+            flexRow.style.cssText = `
+                display: flex;
+                justify-content: space-around;
+            `;
     
             // ✅ 테스트용 row div 생성 (테이블 테스트 영역)
             const testTableRow = document.createElement("div");
@@ -215,6 +256,7 @@ class DJSUtil {
             testTableRow.style.cssText = `
                 background: rgba(255, 255, 255, 0.1);
                 padding: 10px;
+                width: 48%;
                 border-radius: 5px;
                 text-align: center;
                 display: flex;
@@ -246,42 +288,15 @@ TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합�
                 </button>
             `;
 
-             // ✅ 테스트용 row div 생성 (탭 테스트 영역)
-             const buttonsRow = document.createElement("div");
-             buttonsRow.id = "djs-test-buttons";
-             buttonsRow.style.cssText = `
-                 background: rgba(255, 255, 255, 0.1);
-                 padding: 10px;
-                 border-radius: 5px;
-                 text-align: center;
-                 display: flex;
-                 flex-direction: column;
-                 align-items: center;
-                 justify-content: center;
-             `;
-             buttonsRow.innerHTML = `
-                 <b>🟣 단순 함수 호출 영역</b>
-                <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
-    기본적인 모듈의 console.log가 구현되어 있습니다. verboseMode를 설정하여 출력여부를 설정할 수 있습니다.
-    
-    (* 예시) :
 
-    • DJSUtil.setVerboseMode(true);
-    • DJSUtil.setVerboseMode(false);
-    • DJSUtil.swal.fire('🔊 verboseMode HAS BEEN TURNED ON');
-                </pre>
-                 <div style="margin-top:10px; display:flex; gap:10px;">
-                    <button id="btns-verebose-on" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔊 verboseMode ON </button>
-                    <button id="btns-verebose-off" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔇 verboseMode OFF </button>
-                    <button id="btns-swal-fire" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;">  🔥 Swal fire (HELLO WORLD) </button>
-                 </div>
-                 
-             `;
+
+             
+            flexRow.appendChild(testTabRow);
+            flexRow.appendChild(testTableRow);
     
             // ✅ 컨테이너에 추가
-            testbed.appendChild(testTabRow);
-            testbed.appendChild(testTableRow);
             testbed.appendChild(buttonsRow);
+            testbed.appendChild(flexRow);
     
             document.body.prepend(testbed); // ✅ 화면 최상단에 삽입
     
