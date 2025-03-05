@@ -27,7 +27,7 @@ class DJSUtil {
 
 
             console.group("DJSUtil Initialization");
-            
+
             console.log(`                            
                 ██████╗      ██╗███████╗██╗   ██╗████████╗██╗██╗     
                 ██╔══██╗     ██║██╔════╝██║   ██║╚══██╔══╝██║██║     
@@ -193,6 +193,18 @@ class DJSUtil {
             `;
             testTabRow.innerHTML = `
                 <b>🟢 Tab Test 영역</b><span style='margin-left:5px'>div id : djs-test-tab</span>
+                <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
+    (* 예시) :
+                
+    DJSUtil.generateTabManager("#djs-test-tab",{
+        height: "400px",
+        width: "800px",
+        initTabs : [
+            { tab_title: "Tab 1", tab_content: "Content 1", isRemovable: true },
+            { tab_title: "Tab 2", tab_content: "Content 2", isRemovable: false },
+        ]
+    });
+                </pre>
                 <button id="tab-test-btn" style="margin-top:10px; padding:5px 10px; background:#4CAF50; color:white; border:none; border-radius:3px; cursor:pointer;">
                     ▶ SAMPLE 실행
                 </button>
@@ -216,6 +228,7 @@ class DJSUtil {
                 <b>🔵 Tabulator Test 영역</b><span style='margin-left:5px'>div id : djs-test-table</span>
                   <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
 (* 예시) :
+
     DJSUtil.generateTable("#djs-test-table", {
         data: [
             { id: 1, name: "DJSUtil" },
@@ -249,6 +262,13 @@ class DJSUtil {
              `;
              buttonsRow.innerHTML = `
                  <b>🟣 단순 함수 호출 영역</b>
+                <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
+    (* 예시) :
+
+    • DJSUtil.setVerboseMode(true);
+    • DJSUtil.setVerboseMode(false);
+    • DJSUtil.swal.fire('🔊 verboseMode HAS BEEN TURNED ON');
+                </pre>
                  <div style="margin-top:10px; display:flex; gap:10px;">
                     <button id="btns-verebose-on" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔊 verboseMode ON </button>
                     <button id="btns-verebose-off" style="margin-top:10px; padding:5px 10px; background:#8d65c5; color:white; border:none; border-radius:3px; cursor:pointer;"> 🔇 verboseMode OFF </button>
