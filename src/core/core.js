@@ -287,7 +287,7 @@ class DJSUtil {
             // ✅ 버튼 이벤트 리스너 추가 (샘플 코드 실행)
             document.getElementById("tab-test-btn").addEventListener("click", function() {
                 window.DJSUtil.generateTabManager("#djs-test-tab",{
-                    height: "400px",
+                    height: "300px",
                     width: "800px",
                     initTabs : [
                         { tab_title: "Tab 1", tab_content: "Content 1", isRemovable: true },
