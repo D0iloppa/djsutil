@@ -262,6 +262,9 @@ TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합�
              buttonsRow.innerHTML = `
                  <b>🟣 단순 함수 호출 영역</b>
                 <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
+    기본적인 모듈의 console.log가 구현되어 있습니다. verboseMode를 설정하여 출력여부를 설정할 수 있습니다.
+    개발자 도구를 확인해 보세요.
+    
     (* 예시) :
 
     • DJSUtil.setVerboseMode(true);
