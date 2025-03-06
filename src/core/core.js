@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import { TabulatorFull as Tabulator } from "tabulator-tables";
 import TabManager from "../tab/tabManager";
 import Modal from "../modal/modal";
+import { event } from "jquery";
 
 // ✅ Tabulator CSS CDN (로컬 파일을 배포하지 않으므로, CDN을 사용)
 const TABULATOR_CSS_URL = "https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css";
@@ -268,7 +269,7 @@ class DJSUtil {
                 <b>🔵 Tabulator Test 영역</b><span style='margin-left:5px'>div id : djs-test-table</span>
                   <pre style="white-space: pre; background:#222; color:#fff; padding:10px; border-radius:5px; margin-top:5px; text-align: left; font-family: monospace; overflow-x: auto;">
 TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합니다. 
-생성자만 호출할 뿐, 모든 table 인스턴스의 프로토타입 함수는 Tbulator와 동일합니다.                  
+생성자만 호출할 뿐, 모든 table 인스턴스의 프로토타입 함수는 Tabulator와 동일합니다.                  
 (* 예시) :
 
     DJSUtil.generateTable("#djs-test-table", {
@@ -302,14 +303,61 @@ TABULATOR 라이브러리를 사용하여 인스턴스를 DJSUtil에 등록합�
     
             // ✅ 버튼 이벤트 리스너 추가 (샘플 코드 실행)
             document.getElementById("tab-test-btn").addEventListener("click", function() {
-                window.DJSUtil.generateTabManager("#djs-test-tab",{
+
+                let outterData = 123;
+
+                let tabMng = window.DJSUtil.generateTabManager("#djs-test-tab",{
                     height: "300px",
                     width: "800px",
                     initTabs : [
                         { tab_title: "Tab 1", tab_content: "Content 1", isRemovable: true },
-                        { tab_title: "Tab 2", tab_content: "Content 2", isRemovable: false },
+                        { 
+                            tab_title: "Tab 2", tab_content: "Content 2", isRemovable: false, 
+                            events: {
+                                "beforeTabAdd": (tab) => {
+                                    console.log("beforeTabAdd init", tab, outterData);
+                                }
+                            } 
+                        },
                     ]
                 });
+
+                tabMng.on("rendered", function(isInit){
+
+                    const tc = document.querySelector("#djs-test-tab");
+
+                    const buttonContainer = document.createElement("div");
+                    buttonContainer.id = "button-container";
+                    buttonContainer.style.cssText = "display: flex; justify-content: space-between; margin-top: 10px;";
+                
+                    // 3. Add Tab 버튼 생성
+                    const addButton = document.createElement("button");
+                    addButton.id = "add-tab-btn";
+                    addButton.textContent = "Add Tab";
+                
+                    // 4. 버튼을 버튼 컨테이너에 추가
+                    buttonContainer.appendChild(addButton);
+                
+                    // 5. 버튼 컨테이너를 #djs-test-tab 하위에 추가
+                    tc.appendChild(buttonContainer);
+
+                    let outterData = 123;
+                
+                    // 6. Add Tab 버튼 클릭 이벤트 추가
+                    addButton.addEventListener("click", function() {
+                        window.DJSUtil.getTabManager("#djs-test-tab").addTab({
+                            tab_title: "New Tab",
+                            tab_content: "New Tab Content",
+                            events:{
+                                "beforeTabAdd": function(tab){
+                                    console.log(tab, "beforeTabAdd");
+                                }
+                            }
+                        });
+                    });
+
+                });
+
             });
     
             document.getElementById("table-test-btn").addEventListener("click", function() {
